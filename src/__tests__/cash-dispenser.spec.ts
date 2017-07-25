@@ -81,19 +81,3 @@ scenarios('cash-dispenser', CashDispenserStage, ({ given, when, then }) => ({
             .ensure_the_card_is_returned();
     }),
 }));
-
-describe('cash dispenser', () => {
-    it('should dispense cash when in credit +', () => {
-        const account = new Account(100);
-        const card = new Card(account);
-        const cashDispenser = new CashDispenser(5000);
-
-        const result = cashDispenser.requestCash(card, 20);
-
-        expect(result.ok).toBe(true);
-        expect(result.cardReturned).toBe(true);
-        expect(result.dispendedCash).toBe(20);
-        expect(account.getBalance()).toBe(80);
-        expect(result.errorMessage).toBe(null);
-    });
-});
