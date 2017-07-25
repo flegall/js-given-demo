@@ -9,6 +9,8 @@ describe('cash dispenser', () => {
         const result = cashDispenser.requestCash(card, 20);
 
         expect(result.ok).toBe(true);
+        expect(result.cardReturned).toBe(true);
         expect(result.dispendedCash).toEqual(20);
+        expect(result.errorMessage).toBe(null);
     });
 });
