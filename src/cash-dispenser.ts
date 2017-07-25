@@ -13,12 +13,16 @@ export class Account {
         return this.balance - amount >= 0;
     }
 
-    recordCashDispensed(amount: number) {
+    recordCashDispensed(amount: number): void {
         this.balance = this.balance - amount;
+    }
+
+    getBalance(): number {
+        return this.balance;
     }
 }
 
-type ReturnedCashResult = {
+export type ReturnedCashResult = {
     ok: boolean;
     cardReturned: boolean;
     dispendedCash: number;
