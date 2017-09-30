@@ -1,34 +1,28 @@
 {
-  "name": "jest-typescript-example",
-  "version": "1.0.0",
-  "license": "MIT",
-  "dependencies": {},
-  "devDependencies": {
-    "@types/jest": "21.1.1",
-    "jest": "*",
-    "js-given": "^0.1.4",
-    "typescript": "^2.4.2"
-  },
-  "scripts": {
-    "build": "tsc --project . --pretty",
-    "pretest": "yarn build && jsgiven clean",
-    "test": "jest",
-    "posttest": "jsgiven report"
-  },
-  "jest": {
-    "setupFiles": [
-      "./setup-jest.js"
-    ],
-    "moduleFileExtensions": [
-      "ts",
-      "tsx",
-      "js"
-    ],
-    "transform": {
-      "^.+\\.(ts|tsx)$": "<rootDir>/preprocessor.js"
+    "name": "jest-typescript-example",
+    "version": "1.0.0",
+    "license": "MIT",
+    "dependencies": {},
+    "devDependencies": {
+        "@types/jest": "21.1.1",
+        "jest": "*",
+        "js-given": "^0.1.4",
+        "typescript": "^2.4.2"
     },
-    "testMatch": [
-      "**/*.(test|spec).(ts|tsx|js)"
-    ]
-  }
+    "scripts": {
+        "build": "tsc --project . --pretty",
+        "pretest": "yarn build && jsgiven clean",
+        "test": "jest",
+        "posttest": "jsgiven report",
+        "testWatch": "fswatch -0 . | xargs -0 -n 1 -I {} yarn clearTest",
+        "clearTest": "clear && yarn test"
+    },
+    "jest": {
+        "setupFiles": ["./setup-jest.js"],
+        "moduleFileExtensions": ["ts", "tsx", "js"],
+        "transform": {
+            "^.+\\.(ts|tsx)$": "<rootDir>/preprocessor.js"
+        },
+        "testMatch": ["**/*.(test|spec).(ts|tsx|js)"]
+    }
 }
