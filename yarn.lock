@@ -1357,7 +1357,7 @@ jest@*:
   dependencies:
     jest-cli "^21.2.1"
 
-js-given@^0.1.4:
+js-given@0.1.5:
   version "0.1.5"
   resolved "https://registry.yarnpkg.com/js-given/-/js-given-0.1.5.tgz#dfba485fcbab95448931138e0954e3f5ea4d2d38"
   dependencies:
