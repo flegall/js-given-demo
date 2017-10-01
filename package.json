@@ -12,25 +12,18 @@
     "scripts": {
         "build": "tsc --project . --pretty",
         "pretest": "yarn build && jsgiven clean",
-        "test": "jest",
+        "test": "jest || jsgiven report --fail",
         "posttest": "jsgiven report",
-        "testWatch": "fswatch -0 . -e \".*\" -i \"\\.ts$\" | xargs -0 -n 1 -I {} yarn clearTest",
+        "testWatch":
+            "fswatch -0 . -e \".*\" -i \"\\.ts$\" | xargs -0 -n 1 -I {} yarn clearTest",
         "clearTest": "clear && yarn test"
     },
     "jest": {
-        "setupFiles": [
-            "./setup-jest.js"
-        ],
-        "moduleFileExtensions": [
-            "ts",
-            "tsx",
-            "js"
-        ],
+        "setupFiles": ["./setup-jest.js"],
+        "moduleFileExtensions": ["ts", "tsx", "js"],
         "transform": {
             "^.+\\.(ts|tsx)$": "<rootDir>/preprocessor.js"
         },
-        "testMatch": [
-            "**/*.(test|spec).(ts|tsx|js)"
-        ]
+        "testMatch": ["**/*.(test|spec).(ts|tsx|js)"]
     }
 }
